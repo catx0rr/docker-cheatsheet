@@ -1,8 +1,15 @@
 # docker cheatsheet
 ---
 
-## Connect to X11 socket spawn gui applications to your host
+## Connect to X11 socket spawn gui applications from container to host
 ---
+
+mount: -v /tmp/.X11-unix:/tmp/.X11-unix/:ro
+
+## Connect Sound to container to spawn sound from container to host
+
+mount: -v /dev/snd:/dev/snd
+
 
 ### Using docker build
 ---
