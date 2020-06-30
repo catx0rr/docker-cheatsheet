@@ -1,0 +1,16 @@
+# basic sqlite3 image
+
+## change [user] to your user
+
+FROM ubuntu:latest
+
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y iputils-ping net-tools
+RUN apt-get install -y sqlite3 libsqlite3-dev sqlitebrowser
+RUN useradd -m -s /bin/bash [user]
+RUN passwd -d [user]
+RUN mkdir /database
+RUN /usr/bin/sqlite3 /database/blog.db ".databases"
+
+CMD /bin/bash
